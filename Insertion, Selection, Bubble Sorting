@@ -1,5 +1,6 @@
-# DAA-SyDan
+# DAA-SyDan-tera_baap
 #include<stdio.h>
+#include<time.h>
 void insert()
 {
 	int i,j,s,temp,a[20];
