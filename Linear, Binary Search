@@ -1,0 +1,102 @@
+ #include<stdio.h>
+ void linear()
+ {
+
+    int a[10],i,n,m,c=0;
+
+    printf("Enter the size of an array: ");
+    scanf("%d",&n);
+
+    printf("Enter the elements of the array: \n");
+    for(i=0;i<n;i++)
+    {
+         scanf("%d",&a[i]);
+    }
+
+    printf("Enter the number to be search: ");
+    scanf("%d",&m);
+    for(i=0;i<n;i++)
+    {
+         if(a[i]==m)
+         {
+             c=1;
+             break;
+         }
+    }
+    if(c==0)
+         printf("The number is not in the list\n");
+    else
+         printf("The number is found at position %d\n", i+1);
+}
+void binary()
+{
+    int a[10],i,n,m,c=0,l,u,mid;
+
+    printf("Enter the size of an array: ");
+    scanf("%d",&n);
+
+    printf("Enter the elements in ascending order: \n");
+    for(i=0;i<n;i++){
+         scanf("%d",&a[i]);
+    }
+
+    printf("Enter the number to be search: ");
+    scanf("%d",&m);
+
+    l=0,u=n-1;
+    while(l<=u)
+    {
+         mid=(l+u)/2;
+         if(m==a[mid])
+         {
+             c=1;
+             break;
+         }
+         else if(m<a[mid])
+         {
+             u=mid-1;
+         }
+         else
+             l=mid+1;
+    }
+    if(c==0)
+         printf("The number is not found.\n");
+    else
+         printf("The number is found at position %d\n", mid+1);
+}
+ void menu()
+{
+	
+	int z;
+	char rep;
+	printf("Welcome TO SEARCHOGRAM ver-2.0\n PLease enter the your choice of search\n");
+	printf("1. Linear Search\n2. Binary Search\n");
+	scanf("%d", &z);
+	switch(z)
+	{
+		case 1:
+			linear();
+			break;
+		case 2:
+			binary();
+			break;
+		default:
+			printf("Look at the options above. And input again. This time no bullshit");
+			
+	}	
+
+}
+ int main()
+{
+	char rep='y';
+	while (rep=='y')
+	{
+		menu();
+		printf("Do you want me more (y/n): ");
+		scanf("%s", &rep);
+	}
+	return 0;
+
+}
+
+
