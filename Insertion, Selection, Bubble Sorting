@@ -1,0 +1,120 @@
+# DAA-SyDan
+#include<stdio.h>
+void insert()
+{
+	int i,j,s,temp,a[20];
+
+  printf("Enter total elements: ");
+  scanf("%d",&s);
+
+  printf("Enter %d elements: ",s);
+  for(i=0;i<s;i++)
+      scanf("%d",&a[i]);
+
+  for(i=1;i<s;i++)
+  {
+      temp=a[i];
+      j=i-1;
+      while((temp<a[j])&&(j>=0))
+      {
+         a[j+1]=a[j];
+         j=j-1;
+      }
+      a[j+1]=temp;
+  }
+
+  printf("After sorting: ");
+  for(i=0;i<s;i++)
+      printf(" %d",a[i]);
+	printf ("\n");	
+	
+}
+void select()
+{
+	int s,i,j,temp,a[20];
+
+  printf("Enter total elements: ");
+  scanf("%d",&s);
+
+  printf("Enter %d elements: ",s);
+  for(i=0;i<s;i++)
+      scanf("%d",&a[i]);
+
+  for(i=0;i<s;i++){
+      for(j=i+1;j<s;j++){
+           if(a[i]>a[j]){
+               temp=a[i];
+              a[i]=a[j];
+              a[j]=temp;
+           }
+      }
+  }
+
+  printf("After sorting is: ");
+  for(i=0;i<s;i++)
+      printf(" %d",a[i]);
+      printf("\n");
+}
+void bubble()
+{
+	int data[100],i,n,step,temp;
+    printf("Enter the number of elements to be sorted: ");
+    scanf("%d",&n);
+    for(i=0;i<n;++i)
+    {
+        printf("%d. Enter element: ",i+1);
+        scanf("%d",&data[i]);
+    }
+
+    for(step=0;step<n-1;++step)
+    for(i=0;i<n-step-1;++i)
+    {
+        if(data[i]>data[i+1])   
+        {
+            temp=data[i];
+            data[i]=data[i+1];
+            data[i+1]=temp;
+        }
+    }
+    printf("In ascending order: ");
+    for(i=0;i<n;++i)
+         printf("%d  ",data[i]);
+         printf("\n");
+}
+void menu()
+{
+	
+	int z;
+	char rep;
+	printf("Welcome TO Sortogram ver-3.0\n PLease enter the your choice of sorting\n");
+	printf("1. Selection Sorting\n2. Insertion Sorting\n3. Bubble Sorting\n");
+	scanf("%d", &z);
+	switch(z)
+	{
+		case 1:
+			select();
+			break;
+		case 2:
+			insert();
+			break;
+		case 3: 
+			bubble();
+			break;
+		default:
+			printf("Look at the options above. And input again. This time no bullshit");
+			
+	}	
+
+}
+int main()
+{
+	char rep='y';
+	while (rep=='y')
+	{
+		menu();
+		printf("Do you want me more (y/n):");
+		scanf("%s", &rep);
+	}
+	return 0;
+
+}
